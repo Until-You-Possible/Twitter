@@ -21,6 +21,7 @@
 		AA69652C29092AA9009D1F20 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA69652B29092AA9009D1F20 /* ProfileView.swift */; };
 		AA69652E29092ACC009D1F20 /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA69652D29092ACC009D1F20 /* NotificationsView.swift */; };
 		AA69653029092AE4009D1F20 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA69652F29092AE4009D1F20 /* MessageView.swift */; };
+		AA696534290A8F28009D1F20 /* TweetFilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA696533290A8F28009D1F20 /* TweetFilterViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		AA69652B29092AA9009D1F20 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		AA69652D29092ACC009D1F20 /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
 		AA69652F29092AE4009D1F20 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
+		AA696533290A8F28009D1F20 /* TweetFilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetFilterViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -264,6 +266,7 @@
 		AA696532290A5DF8009D1F20 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				AA696533290A8F28009D1F20 /* TweetFilterViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 				AA69651E2908FFE7009D1F20 /* TweetRowView.swift in Sources */,
 				AA69651B2908E0B4009D1F20 /* FeedView.swift in Sources */,
 				AA69653029092AE4009D1F20 /* MessageView.swift in Sources */,
+				AA696534290A8F28009D1F20 /* TweetFilterViewModel.swift in Sources */,
 				AA6964E82907EBE9009D1F20 /* TwitterSwiftApp.swift in Sources */,
 				AA69652829092A76009D1F20 /* ExploreView.swift in Sources */,
 				AA69652C29092AA9009D1F20 /* ProfileView.swift in Sources */,
