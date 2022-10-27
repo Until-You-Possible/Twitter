@@ -231,7 +231,8 @@
 		AA69652429092A05009D1F20 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				AA69652B29092AA9009D1F20 /* ProfileView.swift */,
+				AA696532290A5DF8009D1F20 /* ViewModels */,
+				AA696531290A5DF0009D1F20 /* Views */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -250,6 +251,21 @@
 				AA69652729092A76009D1F20 /* ExploreView.swift */,
 			);
 			path = Explore;
+			sourceTree = "<group>";
+		};
+		AA696531290A5DF0009D1F20 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AA69652B29092AA9009D1F20 /* ProfileView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AA696532290A5DF8009D1F20 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
