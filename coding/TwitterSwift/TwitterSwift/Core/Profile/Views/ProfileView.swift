@@ -11,6 +11,7 @@ struct ProfileView: View {
     
     @State private var selectionFilter: TweetFilterViewModel = .tweets
     @Namespace var animation
+    @Environment(\.presentationMode) var mode
     
     var body: some View {
         
@@ -48,7 +49,7 @@ extension ProfileView {
             
             VStack {
                 Button {
-                    
+                    mode.wrappedValue.dismiss()
                 } label: {
                     Image(systemName: "arrow.left")
                         .resizable()
