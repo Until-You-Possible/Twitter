@@ -32,7 +32,9 @@ struct SideMenuView: View {
                 
             }
             
-            SideMenuRowView()
+            ForEach() {
+                
+            }
             
             Spacer()
 

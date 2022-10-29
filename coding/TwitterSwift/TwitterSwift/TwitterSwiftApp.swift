@@ -11,7 +11,9 @@ import SwiftUI
 struct TwitterSwiftApp: App {
     var body: some Scene {
         WindowGroup {
-            MainTabView()
+            NavigationView {
+                MainTabView()
+            }
         }
     }
 }

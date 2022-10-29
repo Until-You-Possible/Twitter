@@ -33,3 +33,4 @@ struct SideMenuRowView_Previews: PreviewProvider {
         SideMenuRowView()
     }
 }
+
