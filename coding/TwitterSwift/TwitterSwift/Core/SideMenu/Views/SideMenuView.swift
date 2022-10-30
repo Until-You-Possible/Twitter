@@ -32,7 +32,17 @@ struct SideMenuView: View {
                 
             }
             
-            ForEach() {
+            ForEach(SideMenuViewModel.allCases, id: \.rawValue) { item in
+                
+                if item == .profile {
+                    NavigationLink {
+                        ProfileView()
+                    } label: {
+                        SideMenuRowView(viewModel: item)
+                    }
+                } else {
+                    SideMenuRowView(viewModel: item)
+                }
                 
             }
             
