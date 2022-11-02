@@ -12,7 +12,8 @@ struct TwitterSwiftApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                MainTabView()
+                // MainTabView()
+                LoginView()
             }
         }
     }

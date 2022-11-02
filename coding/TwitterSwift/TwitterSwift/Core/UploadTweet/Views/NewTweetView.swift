@@ -11,12 +11,14 @@ struct NewTweetView: View {
     
     @State private var caption = "";
     
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
         VStack {
             
             HStack {
                 Button {
-                    
+                    presentationMode.wrappedValue.dismiss()
                 } label: {
                     Text("Cancel")
                         .foregroundColor(Color(.systemBlue))
@@ -25,7 +27,7 @@ struct NewTweetView: View {
                 Spacer()
                 
                 Button {
-                    
+                    print("tweet")
                 } label: {
                     Text("Tweet")
                         .padding(.horizontal)

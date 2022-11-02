@@ -29,6 +29,9 @@
 		AA696544290BC73D009D1F20 /* UserStatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA696543290BC73D009D1F20 /* UserStatesView.swift */; };
 		AA696549290FBBB6009D1F20 /* NewTweetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA696548290FBBB6009D1F20 /* NewTweetView.swift */; };
 		AA69654C290FC237009D1F20 /* TextArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA69654B290FC237009D1F20 /* TextArea.swift */; };
+		AAF48FC02912502700ABE76E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF48FBF2912502700ABE76E /* LoginView.swift */; };
+		AAF48FC22912503C00ABE76E /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF48FC12912503C00ABE76E /* RegistrationView.swift */; };
+		AAF48FC42912547800ABE76E /* RoundedShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF48FC32912547800ABE76E /* RoundedShape.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +77,9 @@
 		AA696543290BC73D009D1F20 /* UserStatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatesView.swift; sourceTree = "<group>"; };
 		AA696548290FBBB6009D1F20 /* NewTweetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTweetView.swift; sourceTree = "<group>"; };
 		AA69654B290FC237009D1F20 /* TextArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextArea.swift; sourceTree = "<group>"; };
+		AAF48FBF2912502700ABE76E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		AAF48FC12912503C00ABE76E /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		AAF48FC32912547800ABE76E /* RoundedShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedShape.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +176,7 @@
 		AA6965122907ECC0009D1F20 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				AAF48FBC29124FB400ABE76E /* Authentication */,
 				AA696545290FBB6F009D1F20 /* UploadTweet */,
 				AA69653A290BB8CC009D1F20 /* SideMenu */,
 				AA69652629092A2C009D1F20 /* Explore */,
@@ -195,6 +202,7 @@
 			children = (
 				AA696537290BA470009D1F20 /* Users */,
 				AA69651C2908FFBD009D1F20 /* Tweets */,
+				AAF48FC32912547800ABE76E /* RoundedShape.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -364,6 +372,31 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		AAF48FBC29124FB400ABE76E /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				AAF48FBE29124FD100ABE76E /* ViewModels */,
+				AAF48FBD29124FC500ABE76E /* Views */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		AAF48FBD29124FC500ABE76E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AAF48FBF2912502700ABE76E /* LoginView.swift */,
+				AAF48FC12912503C00ABE76E /* RegistrationView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AAF48FBE29124FD100ABE76E /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -506,7 +539,10 @@
 				AA69652829092A76009D1F20 /* ExploreView.swift in Sources */,
 				AA69654C290FC237009D1F20 /* TextArea.swift in Sources */,
 				AA69652C29092AA9009D1F20 /* ProfileView.swift in Sources */,
+				AAF48FC02912502700ABE76E /* LoginView.swift in Sources */,
+				AAF48FC22912503C00ABE76E /* RegistrationView.swift in Sources */,
 				AA696549290FBBB6009D1F20 /* NewTweetView.swift in Sources */,
+				AAF48FC42912547800ABE76E /* RoundedShape.swift in Sources */,
 				AA696542290BB934009D1F20 /* SideMenuViewModel.swift in Sources */,
 				AA696539290BA482009D1F20 /* UserRowView.swift in Sources */,
 				AA69652129092802009D1F20 /* MainTabView.swift in Sources */,
