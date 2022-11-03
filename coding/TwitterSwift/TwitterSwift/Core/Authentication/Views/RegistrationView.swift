@@ -8,8 +8,72 @@
 import SwiftUI
 
 struct RegistrationView: View {
+    
+    @State private var email = ""
+    @State private var username = ""
+    @State private var fullname = ""
+    @State private var password = ""
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        VStack {
+            // MARK: header view
+            RoundedHeaderView(firstLine: "Get Started", secondLine: "Create your account")
+            
+            // MARK: form
+            VStack(spacing: 40) {
+                
+                customInputField(imageName: "envelope",
+                                 placeholdertext: "Email",
+                                 text: $email)
+            
+                customInputField(imageName: "person",
+                                 placeholdertext: "Username",
+                                 text: $username)
+                
+                customInputField(imageName: "person",
+                                 placeholdertext: "fullname",
+                                 text: $fullname)
+                
+                customInputField(imageName: "lock",
+                                 placeholdertext: "Password",
+                                 text: $password)
+                
+            }
+            .padding(.top, 44)
+            .padding(.horizontal, 32)
+            
+            Button {
+                print("login")
+            } label: {
+                Text("Sign Up")
+                    .font(.headline)
+                    .frame(width: 340, height: 50)
+                    .background(Color(.systemBlue))
+                    .foregroundColor(.white)
+                    .clipShape(Capsule())
+                    .padding()
+            }
+            .padding(.top, 30)
+            .shadow(color: .gray, radius: 10, x: 0, y: 0)
+            
+            Spacer()
+            
+            NavigationLink {
+                LoginView()
+                    .navigationBarHidden(true)
+            } label: {
+                HStack {
+                    Text("Already have an account?")
+                    Text("Sign Up")
+                        .font(.headline)
+                }
+                .foregroundColor(Color(.systemBlue))
+                .padding(.bottom, 40)
+            }
+        }
+        .ignoresSafeArea()
+
     }
 }
 

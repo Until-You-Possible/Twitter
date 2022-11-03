@@ -19,24 +19,7 @@ struct LoginView: View {
         VStack {
             
             // MARK: header view
-            VStack(alignment: .leading) {
-                
-                HStack { Spacer () }
-                
-                Text("Hello")
-                    .font(.largeTitle)
-                    .fontWeight(.semibold)
-                
-                Text("Welcome Back")
-                    .font(.largeTitle)
-                    .fontWeight(.semibold)
-            }
-//            .frame(width: UIScreen.main.bounds.width, height: 260)
-            .frame(height: 260)
-            .padding(.leading)
-            .background(Color(.systemBlue))
-            .foregroundColor(.white)
-            .clipShape(RoundedShape(corners: [.bottomRight]))
+            RoundedHeaderView(firstLine: "Hello", secondLine: "Welcome Back")
             
             // MARK: form
             VStack(spacing: 40) {

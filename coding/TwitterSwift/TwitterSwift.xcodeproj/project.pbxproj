@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AA3EAA3F2912BB2100E3B820 /* customInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3EAA3E2912BB2100E3B820 /* customInputField.swift */; };
+		AA3EAA4129134FDF00E3B820 /* RoundedHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3EAA4029134FDF00E3B820 /* RoundedHeaderView.swift */; };
 		AA6964E82907EBE9009D1F20 /* TwitterSwiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6964E72907EBE9009D1F20 /* TwitterSwiftApp.swift */; };
 		AA6964EA2907EBE9009D1F20 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6964E92907EBE9009D1F20 /* ContentView.swift */; };
 		AA6964EC2907EBEA009D1F20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA6964EB2907EBEA009D1F20 /* Assets.xcassets */; };
@@ -54,6 +55,7 @@
 
 /* Begin PBXFileReference section */
 		AA3EAA3E2912BB2100E3B820 /* customInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customInputField.swift; sourceTree = "<group>"; };
+		AA3EAA4029134FDF00E3B820 /* RoundedHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedHeaderView.swift; sourceTree = "<group>"; };
 		AA6964E42907EBE9009D1F20 /* TwitterSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA6964E72907EBE9009D1F20 /* TwitterSwiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterSwiftApp.swift; sourceTree = "<group>"; };
 		AA6964E92907EBE9009D1F20 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 				AA69651C2908FFBD009D1F20 /* Tweets */,
 				AAF48FC32912547800ABE76E /* RoundedShape.swift */,
 				AA3EAA3E2912BB2100E3B820 /* customInputField.swift */,
+				AA3EAA4029134FDF00E3B820 /* RoundedHeaderView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -551,6 +554,7 @@
 				AA696539290BA482009D1F20 /* UserRowView.swift in Sources */,
 				AA69652129092802009D1F20 /* MainTabView.swift in Sources */,
 				AA69652E29092ACC009D1F20 /* NotificationsView.swift in Sources */,
+				AA3EAA4129134FDF00E3B820 /* RoundedHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
