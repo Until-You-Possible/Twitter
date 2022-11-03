@@ -7,3 +7,4 @@ and as usual: prepare the env and ensure the relevant versions about tools and l
 - MacOS MacBook Pro Apple M1 Pro
 - swift5
 - xcode: 13.2.1
+- firebase (Authentication && base && storage)
