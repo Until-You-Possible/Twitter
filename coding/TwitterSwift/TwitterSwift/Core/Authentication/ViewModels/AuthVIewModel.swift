@@ -23,6 +23,20 @@ class AuthViewModel: ObservableObject {
     
     func login(withEmail email: String, password: String) {
         print("DEBUG: Email is \(email)")
+        
+        Auth.auth().signIn(withEmail: email, password: password) { result, error in
+            
+            if let error = error {
+                print("DEBUG: Failed to sign in with error \(error.localizedDescription)")
+                return
+            }
+            
+            guard let user = result?.user else { return }
+            self.userSession = user
+            print("DEBUG: did log user in......")
+            
+            
+        }
     }
     
     func register(withEmail email: String, password: String, fullname: String, username: String) {
@@ -31,7 +45,7 @@ class AuthViewModel: ObservableObject {
         Auth.auth().createUser(withEmail: email, password: password) { result, error in
             
             if let error = error {
-                print("DEBUG: Failed to register with error\(error.localizedDescription)")
+                print("DEBUG: Failed to register with error \(error.localizedDescription)")
                 return
             }
             // guard let 守护一定有值 如果没有 直接返回
