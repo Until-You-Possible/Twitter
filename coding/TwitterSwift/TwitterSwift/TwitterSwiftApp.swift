@@ -23,8 +23,8 @@ struct TwitterSwiftApp: App {
                 // MainTabView()
                 // LoginView()
                 ContentView()
-                    .environmentObject(viewModel)
             }
+            .environmentObject(viewModel)
         }
     }
 }

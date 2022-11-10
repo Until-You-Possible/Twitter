@@ -15,7 +15,7 @@ struct ContentView: View {
     var body: some View {
         
         Group {
-            
+            // no user logger in
             if viewModel.userSession == nil {
                 LoginView()
             } else {
