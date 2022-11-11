@@ -19,6 +19,11 @@ struct RegistrationView: View {
     var body: some View {
         
         VStack {
+            
+            NavigationLink(destination: ProfileSelectoerView(),
+                           isActive: false,
+                           label: {})
+            
             // MARK: header view
             RoundedHeaderView(firstLine: "Get Started", secondLine: "Create your account")
             
@@ -39,6 +44,7 @@ struct RegistrationView: View {
                 
                 customInputField(imageName: "lock",
                                  placeholdertext: "Password",
+                                 isSecureField: true,
                                  text: $password)
                 
             }

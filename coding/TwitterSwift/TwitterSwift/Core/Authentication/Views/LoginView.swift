@@ -32,6 +32,7 @@ struct LoginView: View {
             
                 customInputField(imageName: "lock",
                                  placeholdertext: "Password",
+                                 isSecureField: true,
                                  text: $password)
                 
             }

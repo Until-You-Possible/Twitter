@@ -17,7 +17,7 @@ class AuthViewModel: ObservableObject {
         
         self.userSession = Auth.auth().currentUser
         
-        print("DEBUG: User session is \(String(describing: self.userSession))")
+        print("DEBUG: User session is \(String(describing: self.userSession?.uid))")
         
     }
     
@@ -54,16 +54,16 @@ class AuthViewModel: ObservableObject {
             print("register successfully !")
             print("DEBUG:  userSession is \(String(describing: self.userSession))")
             
-            let data = ["email": email,
-                        "username": username.lowercased(),
-                        "fullname": fullname,
-                        "uid": user.uid
+            let data = ["email"    : email,
+                        "username" : username.lowercased(),
+                        "fullname" : fullname,
+                        "uid"      : user.uid
             ]
             
             Firestore.firestore().collection("users")
                 .document(user.uid)
                 .setData(data) { _ in
-                    print("DEBUG: Did upload user data...")
+                    print("DEBUG: Did uplaod user data...")
                 }
             
         }
