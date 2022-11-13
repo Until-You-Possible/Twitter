@@ -12,6 +12,7 @@ import Firebase
 class AuthViewModel: ObservableObject {
     
     @Published var userSession: FirebaseAuth.User?
+    @Published var didAuthenticateUser = false
     
     init () {
         
@@ -40,7 +41,8 @@ class AuthViewModel: ObservableObject {
     }
     
     func register(withEmail email: String, password: String, fullname: String, username: String) {
-        // print("DEBUG: Register email is \(email)")
+        
+         print("DEBUG: current self is \(self)")
         
         Auth.auth().createUser(withEmail: email, password: password) { result, error in
             
@@ -59,12 +61,15 @@ class AuthViewModel: ObservableObject {
                         "fullname" : fullname,
                         "uid"      : user.uid
             ]
-            
+            // sync function
             Firestore.firestore().collection("users")
                 .document(user.uid)
                 .setData(data) { _ in
                     print("DEBUG: Did uplaod user data...")
+                    self.didAuthenticateUser = true
                 }
+            
+            print("DEBUG: didAuthenticateUser is \(self.didAuthenticateUser)")
             
         }
         

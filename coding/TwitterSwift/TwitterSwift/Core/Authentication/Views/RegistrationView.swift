@@ -16,13 +16,16 @@ struct RegistrationView: View {
     
     @EnvironmentObject var viewModel: AuthViewModel
     
+    
+    
     var body: some View {
         
         VStack {
             
             NavigationLink(destination: ProfileSelectoerView(),
-                           isActive: false,
+                           isActive: $viewModel.didAuthenticateUser,
                            label: {})
+            
             
             // MARK: header view
             RoundedHeaderView(firstLine: "Get Started", secondLine: "Create your account")
