@@ -12,11 +12,12 @@ import Firebase
 class AuthViewModel: ObservableObject {
     
     @Published var userSession: FirebaseAuth.User?
-    @Published var didAuthenticateUser = false
-    
+    @Published var didAuthenticateUser: Bool
     init () {
         
         self.userSession = Auth.auth().currentUser
+        
+        self.didAuthenticateUser = false
         
         print("DEBUG: User session is \(String(describing: self.userSession?.uid))")
         
@@ -61,6 +62,7 @@ class AuthViewModel: ObservableObject {
                         "fullname" : fullname,
                         "uid"      : user.uid
             ]
+            
             // sync function
             Firestore.firestore().collection("users")
                 .document(user.uid)

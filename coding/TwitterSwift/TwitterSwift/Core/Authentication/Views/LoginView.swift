@@ -77,7 +77,7 @@ struct LoginView: View {
             } label: {
                 HStack {
                     Text("Don't have an account?")
-                    Text("Sign In")
+                    Text("Sign Up")
                         .font(.headline)
                 }
                 .foregroundColor(Color(.systemBlue))
