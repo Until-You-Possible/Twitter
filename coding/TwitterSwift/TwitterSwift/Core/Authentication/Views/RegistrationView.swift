@@ -25,7 +25,7 @@ struct RegistrationView: View {
             VStack {
                 
                 NavigationLink(destination: ProfileSelectoerView(),
-                               isActive: $pushActive,
+                               isActive: $viewModel.didAuthenticateUser,
                                label: {}
                 )
                 

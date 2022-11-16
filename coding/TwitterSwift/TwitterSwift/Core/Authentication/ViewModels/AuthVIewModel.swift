@@ -8,61 +8,48 @@
 import Foundation
 
 import Firebase
+import UIKit
 
 class AuthViewModel: ObservableObject {
     
     @Published var userSession: FirebaseAuth.User?
     @Published var didAuthenticateUser: Bool
+    private var tempUserSeesion: FirebaseAuth.User?
+    
     init () {
-        
         self.userSession = Auth.auth().currentUser
-        
         self.didAuthenticateUser = false
-        
         print("DEBUG: User session is \(String(describing: self.userSession?.uid))")
-        
     }
     
     func login(withEmail email: String, password: String) {
         print("DEBUG: Email is \(email)")
-        
         Auth.auth().signIn(withEmail: email, password: password) { result, error in
-            
             if let error = error {
                 print("DEBUG: Failed to sign in with error \(error.localizedDescription)")
                 return
             }
-            
             guard let user = result?.user else { return }
             self.userSession = user
             print("DEBUG: did log user in......")
-            
-            
         }
     }
     
     func register(withEmail email: String, password: String, fullname: String, username: String) {
-        
-         print("DEBUG: current self is \(self)")
-        
         Auth.auth().createUser(withEmail: email, password: password) { result, error in
-            
             if let error = error {
                 print("DEBUG: Failed to register with error \(error.localizedDescription)")
                 return
             }
             // guard let 守护一定有值 如果没有 直接返回
             guard let user = result?.user else { return }
-            self.userSession = user
-            print("register successfully !")
-            print("DEBUG:  userSession is \(String(describing: self.userSession))")
+            self.tempUserSeesion = user
             
             let data = ["email"    : email,
                         "username" : username.lowercased(),
                         "fullname" : fullname,
                         "uid"      : user.uid
             ]
-            
             // sync function
             Firestore.firestore().collection("users")
                 .document(user.uid)
@@ -70,9 +57,6 @@ class AuthViewModel: ObservableObject {
                     print("DEBUG: Did uplaod user data...")
                     self.didAuthenticateUser = true
                 }
-            
-            print("DEBUG: didAuthenticateUser is \(self.didAuthenticateUser)")
-            
         }
         
     }
@@ -91,6 +75,18 @@ class AuthViewModel: ObservableObject {
             print("Error sugning out: %@", signOutError)
         }
         
+    }
+    
+    // upload user's profile image
+    func uploadProfileImageToCurrentUser(_ image: UIImage) {
+        guard let uid = tempUserSeesion?.uid else { return }
+        ImageUploader.uploadImage(image: image) { profileImageUrl in
+            Firestore.firestore().collection("users")
+                .document(uid)
+                .updateData(["profileImageUrl": profileImageUrl]) { _ in
+                    self.userSession = self.tempUserSeesion
+                }
+        }
     }
     
 }

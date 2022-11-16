@@ -11,7 +11,9 @@ struct ProfileSelectoerView: View {
     
     @State private var showImagePricker = false
     @State private var selectedImage: UIImage?
-    @State var profileImage: Image
+    @State var profileImage: Image?
+    
+    @EnvironmentObject var viewModel: AuthViewModel
     
     var body: some View {
         
@@ -25,6 +27,7 @@ struct ProfileSelectoerView: View {
             } label: {
                 if let profileImage = profileImage {
                     profileImage
+                        .resizable()
                         .modifier(ProfileImageModifier())
                 }  else {
                     Image(systemName: "plus.circle")
@@ -36,6 +39,28 @@ struct ProfileSelectoerView: View {
             .sheet(isPresented: $showImagePricker, onDismiss: loadImage) {
                 ImagePicker(selectedIamge: $selectedImage)
             }
+            .padding(.top, 44)
+            
+            // MARK: continue button
+            
+            if let selectedImage = selectedImage {
+                Button {
+                    print("profile image")
+                    // upload the image info
+                    viewModel.uploadProfileImageToCurrentUser(selectedImage)
+                    
+                } label: {
+                    Text("Continue")
+                        .font(.headline)
+                        .frame(width: 340, height: 50)
+                        .background(Color(.systemBlue))
+                        .foregroundColor(.white)
+                        .clipShape(Capsule())
+                        .padding()
+                }
+                .padding(.top, 30)
+                .shadow(color: .gray, radius: 10, x: 0, y: 0)
+            }
                     
             Spacer()
             
@@ -46,7 +71,7 @@ struct ProfileSelectoerView: View {
     
     func loadImage() {
         guard let selectedImage = selectedImage else { return }
-        profileImage = Image(uiImage: selectedImage)
+        self.profileImage = Image(uiImage: selectedImage)
     }
     
 }
@@ -57,8 +82,8 @@ private struct ProfileImageModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .foregroundColor(Color(.systemBlue))
+            .scaledToFill()
             .frame(width: 180, height: 180)
-            .padding(.top, 50)
             .clipShape(Circle())
         
     }
