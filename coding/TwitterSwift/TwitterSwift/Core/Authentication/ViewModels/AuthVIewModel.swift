@@ -15,11 +15,13 @@ class AuthViewModel: ObservableObject {
     @Published var userSession: FirebaseAuth.User?
     @Published var didAuthenticateUser: Bool
     private var tempUserSeesion: FirebaseAuth.User?
+    private let service = UserService()
     
     init () {
         self.userSession = Auth.auth().currentUser
         self.didAuthenticateUser = false
-        print("DEBUG: User session is \(String(describing: self.userSession?.uid))")
+        self.fetchUserData()
+
     }
     
     func login(withEmail email: String, password: String) {
@@ -69,7 +71,8 @@ class AuthViewModel: ObservableObject {
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()
-            userSession = nil
+            self.userSession = nil
+            self.didAuthenticateUser = false
             print("signout successfully, userSession is \(String(describing: userSession))")
         } catch let signOutError as NSError {
             print("Error sugning out: %@", signOutError)
@@ -87,6 +90,12 @@ class AuthViewModel: ObservableObject {
                     self.userSession = self.tempUserSeesion
                 }
         }
+    }
+    
+    // fetch user data
+    func fetchUserData() {
+        guard let uid = self.userSession?.uid else { return }
+        service.fetchUser(withUid: uid)
     }
     
 }
