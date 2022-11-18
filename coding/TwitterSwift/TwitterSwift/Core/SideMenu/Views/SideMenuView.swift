@@ -9,57 +9,54 @@ import SwiftUI
 
 struct SideMenuView: View {
     
-    @EnvironmentObject var viewModel: AuthViewModel
+    @EnvironmentObject var authViewModel: AuthViewModel
     
     var body: some View {
         
-        VStack(alignment: .leading) {
+        if let user = authViewModel.currentUser {
             VStack(alignment: .leading) {
-                Circle()
-                    .frame(width: 48.0, height: 48)
-                
-                VStack(alignment: .leading, spacing: 4) {
-                    Text("Bruce Wayne")
-                        .font(.subheadline)
-                        .bold()
+                VStack(alignment: .leading) {
+                    Circle()
+                        .frame(width: 48.0, height: 48)
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(user.fullname)
+                            .font(.subheadline)
+                            .bold()
+                            
                         
-                    
-                    Text("@gang")
-                        .font(.subheadline)
-                        .foregroundColor(.gray)
-                }
-                
-                UserStatesView()
-                    .padding(.vertical)
-                
-                
-            }
-            
-            ForEach(SideMenuViewModel.allCases, id: \.rawValue) { item in
-                
-                if item == .profile {
-                    NavigationLink {
-                        ProfileView()
-                    } label: {
-                        SideMenuRowView(viewModel: item)
+                        Text("@\(user.username)")
+                            .font(.subheadline)
+                            .foregroundColor(.gray)
                     }
-                } else if item == .logout {
-                    Button {
-                        viewModel.signOut()
-                    } label: {
-                        SideMenuRowView(viewModel: item)
-                    }
-                }
-                else {
-                    SideMenuRowView(viewModel: item)
-                }
-                
-            }
-            
-            Spacer()
+                    UserStatesView()
+                        .padding(.vertical)
 
+                }
+                ForEach(SideMenuViewModel.allCases, id: \.rawValue) { item in
+                    
+                    if item == .profile {
+                        NavigationLink {
+                            ProfileView()
+                        } label: {
+                            SideMenuRowView(viewModel: item)
+                        }
+                    } else if item == .logout {
+                        Button {
+                            authViewModel.signOut()
+                        } label: {
+                            SideMenuRowView(viewModel: item)
+                        }
+                    }
+                    else {
+                        SideMenuRowView(viewModel: item)
+                    }
+                    
+                }
+                Spacer()
+            }
+            .padding(.leading)
         }
-        .padding(.leading)
+        
         
     }
 }

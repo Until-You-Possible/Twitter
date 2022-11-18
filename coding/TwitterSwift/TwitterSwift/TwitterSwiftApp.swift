@@ -25,6 +25,7 @@ struct TwitterSwiftApp: App {
                 ContentView()
             }
             .environmentObject(viewModel)
+            .navigationViewStyle(.stack)
         }
     }
 }

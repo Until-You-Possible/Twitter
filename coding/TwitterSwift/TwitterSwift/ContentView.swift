@@ -33,6 +33,7 @@ struct ContentView_Previews: PreviewProvider {
         NavigationView {
              ContentView()
         }
+        .navigationViewStyle(.stack)
 
     }
 }

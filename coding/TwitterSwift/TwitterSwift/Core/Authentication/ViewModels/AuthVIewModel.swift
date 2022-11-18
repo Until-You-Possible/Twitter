@@ -12,9 +12,10 @@ import UIKit
 
 class AuthViewModel: ObservableObject {
     
-    @Published var userSession: FirebaseAuth.User?
-    @Published var didAuthenticateUser: Bool
-    private var tempUserSeesion: FirebaseAuth.User?
+    @Published var userSession         : FirebaseAuth.User?
+    @Published var didAuthenticateUser : Bool
+    @Published var currentUser         : User?
+    private var tempUserSeesion        : FirebaseAuth.User?
     private let service = UserService()
     
     init () {
@@ -25,15 +26,13 @@ class AuthViewModel: ObservableObject {
     }
     
     func login(withEmail email: String, password: String) {
-        print("DEBUG: Email is \(email)")
         Auth.auth().signIn(withEmail: email, password: password) { result, error in
             if let error = error {
                 print("DEBUG: Failed to sign in with error \(error.localizedDescription)")
                 return
             }
-            guard let user = result?.user else { return }
+            guard let user   = result?.user else { return }
             self.userSession = user
-            print("DEBUG: did log user in......")
         }
     }
     
@@ -71,7 +70,7 @@ class AuthViewModel: ObservableObject {
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()
-            self.userSession = nil
+            self.userSession         = nil
             self.didAuthenticateUser = false
             print("signout successfully, userSession is \(String(describing: userSession))")
         } catch let signOutError as NSError {
@@ -95,7 +94,10 @@ class AuthViewModel: ObservableObject {
     // fetch user data
     func fetchUserData() {
         guard let uid = self.userSession?.uid else { return }
-        service.fetchUser(withUid: uid)
+        service.fetchUser(withUid: uid) { user in
+            print("DEBUG: current user is \(user)")
+            self.currentUser = user
+        }
     }
     
 }
