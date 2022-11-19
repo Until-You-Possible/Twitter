@@ -37,6 +37,7 @@
 		AA696544290BC73D009D1F20 /* UserStatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA696543290BC73D009D1F20 /* UserStatesView.swift */; };
 		AA696549290FBBB6009D1F20 /* NewTweetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA696548290FBBB6009D1F20 /* NewTweetView.swift */; };
 		AA69654C290FC237009D1F20 /* TextArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA69654B290FC237009D1F20 /* TextArea.swift */; };
+		AAAE18152928B60E0007DB2A /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = AAAE18142928B60E0007DB2A /* Kingfisher */; };
 		AAB916C8291E23B100389EDB /* ProfileSelectoerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB916C7291E23B100389EDB /* ProfileSelectoerView.swift */; };
 		AAB916CB29229CBB00389EDB /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB916CA29229CBB00389EDB /* ImagePicker.swift */; };
 		AAB916CE2923DB8900389EDB /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB916CD2923DB8900389EDB /* ImageUploader.swift */; };
@@ -113,6 +114,7 @@
 				AA3EAA4A2913BC7500E3B820 /* FirebaseStorage in Frameworks */,
 				AA3EAA442913BC7500E3B820 /* FirebaseAuth in Frameworks */,
 				AA3EAA482913BC7500E3B820 /* FirebaseFirestoreSwift in Frameworks */,
+				AAAE18152928B60E0007DB2A /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,6 +471,7 @@
 				AA3EAA452913BC7500E3B820 /* FirebaseDatabaseSwift */,
 				AA3EAA472913BC7500E3B820 /* FirebaseFirestoreSwift */,
 				AA3EAA492913BC7500E3B820 /* FirebaseStorage */,
+				AAAE18142928B60E0007DB2A /* Kingfisher */,
 			);
 			productName = TwitterSwift;
 			productReference = AA6964E42907EBE9009D1F20 /* TwitterSwift.app */;
@@ -544,6 +547,7 @@
 			mainGroup = AA6964DB2907EBE9009D1F20;
 			packageReferences = (
 				AA3EAA422913BC7500E3B820 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				AAAE18132928B60E0007DB2A /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = AA6964E52907EBE9009D1F20 /* Products */;
 			projectDirPath = "";
@@ -952,6 +956,14 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		AAAE18132928B60E0007DB2A /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -974,6 +986,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AA3EAA422913BC7500E3B820 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		AAAE18142928B60E0007DB2A /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AAAE18132928B60E0007DB2A /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
