@@ -10,25 +10,21 @@ import SwiftUI
 struct ExploreView: View {
     var body: some View {
         
-        NavigationView {
-            VStack {
-                ScrollView {
-                    LazyVStack {
-                        ForEach (0 ... 30, id: \.self) { _ in
-                            NavigationLink {
+        VStack {
+            ScrollView {
+                LazyVStack {
+                    ForEach (0 ... 30, id: \.self) { _ in
+                        NavigationLink {
 //                                ProfileView()
-                            } label: {
-                                UserRowView()
-                            }
+                        } label: {
+                            UserRowView()
                         }
                     }
                 }
-            
-                
             }
-            .navigationTitle("Explore")
-            .navigationBarTitleDisplayMode(.inline)
         }
+        .navigationTitle("Expore")
+        .navigationBarTitleDisplayMode(.inline)
     }
     
 }

@@ -6,6 +6,7 @@
 //
 
 import Firebase
+import FirebaseFirestoreSwift
 
 
 struct UserService {
@@ -17,6 +18,22 @@ struct UserService {
                 guard let snapshot = snapshot else { return }
                 guard let user = try? snapshot.data(as: User.self) else { return }
                 completion(user)
+            }
+    }
+    
+    func fetchAllUsers(completion: @escaping(Any) -> Void) {
+        var users = [Any]()
+        Firestore.firestore().collection("users")
+            .getDocuments() { ( querySnapshot, error) in
+                if let error = error {
+                    print("Error getting documents: \(error)")
+                    return
+                }
+                for document in querySnapshot!.documents {
+                    print("\(document.documentID) => \(document.data())")
+                    users.append(document)
+                }
+                completion(users)
             }
     }
     
