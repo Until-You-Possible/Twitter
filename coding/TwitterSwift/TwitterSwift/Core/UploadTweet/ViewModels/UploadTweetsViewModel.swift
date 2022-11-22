@@ -9,11 +9,20 @@ import Foundation
 
 
 class UploadTweetsViewModel: ObservableObject {
+    @Published var didUploadedTweets = false
     
     private let service = TweetService()
     
     func postTweetsData(withCaption caption: String) {
-        service.uploadTweet(caption: caption)
+        service.uploadTweet(caption: caption) { success in
+            if success {
+                // dismiss something
+                self.didUploadedTweets = true
+            } else {
+                // show the error message to user...
+                
+            }
+        }
     }
     
 }

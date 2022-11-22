@@ -64,6 +64,11 @@ struct NewTweetView: View {
             .padding(.vertical, 8)
             
         }
+        .onReceive(viewModel.$didUploadedTweets) { success in
+            if success {
+                presentationMode.wrappedValue.dismiss()
+            }
+        }
     }
 }
 
