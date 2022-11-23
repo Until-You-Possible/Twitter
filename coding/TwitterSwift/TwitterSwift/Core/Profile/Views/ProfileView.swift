@@ -198,8 +198,8 @@ extension ProfileView {
         ScrollView {
             LazyVStack {
                 ForEach(0 ... 19, id: \.self) { item in
-                    TweetRowView()
-                        .padding()
+//                    TweetRowView()
+//                        .padding()
                 }
             }
         }

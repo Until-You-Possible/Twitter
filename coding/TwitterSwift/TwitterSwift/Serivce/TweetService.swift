@@ -30,11 +30,15 @@ struct TweetService {
         
     }
     
-    func fetchTweets(completion: @escaping([User]) -> Void) {
-        Firestore.firestore().collection("tweet").getDocuments() { snapshot, _ in
+    func fetchTweets(completion: @escaping([Tweet]) -> Void) {
+        Firestore.firestore().collection("tweets").getDocuments() { snapshot, _ in
+            var tweetsList = [Tweet]()
             guard let documents = snapshot?.documents else { return }
-            let users = documents.compactMap({ try? $0.data(as: User.self) })
-            completion(users)
+            documents.forEach() { document in
+                guard let tweet = try? document.data(as: Tweet.self) else { return }
+                tweetsList.append(tweet)
+            }
+            completion(tweetsList)
         }
     }
     

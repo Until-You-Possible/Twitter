@@ -14,6 +14,10 @@ class UploadTweetsViewModel: ObservableObject {
     private let service = TweetService()
     
     func postTweetsData(withCaption caption: String) {
+        if caption.isEmpty {
+            print("caption can not be empty")
+            return
+        }
         service.uploadTweet(caption: caption) { success in
             if success {
                 // dismiss something
