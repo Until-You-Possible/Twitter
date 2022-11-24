@@ -22,6 +22,7 @@ class FeedViewModel: ObservableObject {
     func fetchTweetsData() {
         service.fetchTweets() { userTweets in
             self.userTweets = userTweets
+            // dump(userTweets)
             for i in 0 ..< userTweets.count {
                 let uid = userTweets[i].uid
                 self.userSerive.fetchUser(withUid: uid) { user in
@@ -30,5 +31,6 @@ class FeedViewModel: ObservableObject {
             }
         }
     }
+     
     
 }

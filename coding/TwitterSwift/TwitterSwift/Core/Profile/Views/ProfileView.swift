@@ -14,9 +14,11 @@ struct ProfileView: View {
     @Namespace var animation
     @Environment(\.presentationMode) var mode
     private let user: User
+    @ObservedObject var viewModel: ProfileViewModle
     
     init(user: User) {
         self.user = user
+        self.viewModel = ProfileViewModle(user: user)
     }
     
     var body: some View {
@@ -197,9 +199,9 @@ extension ProfileView {
         
         ScrollView {
             LazyVStack {
-                ForEach(0 ... 19, id: \.self) { item in
-//                    TweetRowView()
-//                        .padding()
+                ForEach(viewModel.tweets) { tweet in
+                    TweetRowView(tweet: tweet)
+                        .padding()
                 }
             }
         }
