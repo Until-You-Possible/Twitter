@@ -58,5 +58,20 @@ struct TweetService {
         }
     }
     
+    func likeTweet(_ tweet: Tweet, completion: @escaping() -> Void) {
+        print("Debug: like current Tweet")
+        // current user id
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        guard let tweetId = tweet.id else { return }
+        let userLikeRef = Firestore.firestore().collection("users").document(uid).collection("user-likes")
+        // 更新tweet表中的like字段
+        Firestore.firestore().collection("tweets").document(tweetId).updateData(["likes": tweet.likes + 1]) { _ in
+            userLikeRef.document(tweetId).setData([:]) { _ in
+                completion()
+            }
+        }
+        
+    }
+    
     
 }
