@@ -12,6 +12,7 @@ class TweetViewModel: ObservableObject {
     private let service = TweetService()
     init (tweet: Tweet) {
         self.tweet = tweet
+        self.checkIfuserLikes()
     }
     
     func likeTweet() {
@@ -20,4 +21,17 @@ class TweetViewModel: ObservableObject {
         }
     }
     
+    func checkIfuserLikes() {
+        service.checkIfUserLikes(self.tweet) { didLike in
+            if didLike {
+                self.tweet.didLike = true
+            }
+        }
+    }
+    
+    func unLikeTweet() {
+        service.unLikeTweet(self.tweet) {
+            self.tweet.didLike = false
+        }
+    }
 }

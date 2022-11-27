@@ -199,7 +199,7 @@ extension ProfileView {
         
         ScrollView {
             LazyVStack {
-                ForEach(viewModel.tweets) { tweet in
+                ForEach(viewModel.filterTweets(forFilter: self.selectionFilter)) { tweet in
                     TweetRowView(tweet: tweet)
                         .padding()
                 }
